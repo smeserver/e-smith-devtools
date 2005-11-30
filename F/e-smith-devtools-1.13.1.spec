@@ -2,7 +2,7 @@ Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 1.13.1
-%define release 05
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -18,6 +18,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.13.1-06
+- Bump release number only
+
 * Mon Jun 27 2005 Charlie Brady <charlieb@e-smith.com>
 - [1.13.1-05]
 - Fix file permissions (properly) inside /etc/cron.d. [SF: 1226700]
