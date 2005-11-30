@@ -1,0 +1,13 @@
+Index: e-smith-devtools/e-smith-devtools.spec
+diff -u e-smith-devtools/genfilelist:1.13 e-smith-devtools/genfilelist:1.14
+--- e-smith-devtools/genfilelist:1.13	Fri Jun 24 12:38:00 2005
++++ e-smith-devtools/genfilelist	Mon Jun 27 14:00:56 2005
+@@ -118,7 +118,7 @@
+ '/etc/rc.d/init.d/' => "%attr(0755,root,root)",
+ '/etc/rc.d/init.d/supervise/' => "%attr(0755,root,root)",
+ '/etc/profile.d/' => "%attr(0755,root,root)",
+-'/etc/cron.d/' => "%attr(0544,root,root)",
++'/etc/cron.d/' => "%attr(0644,root,root)",
+ '/etc/cron.daily/' => "%attr(0744,root,root)",
+ '/etc/cron.weekly/' => "%attr(0744,root,root)",
+ '/etc/diald/scripts/' => "%attr(0744,root,root)",
