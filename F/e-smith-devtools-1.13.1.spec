@@ -2,7 +2,7 @@ Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 1.13.1
-%define release 07
+%define release 08
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -18,6 +18,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Tue Jan 24 2006 Gordon Rowell <gordonr@gormand.com.au> 1.13.1-08
+- Remove % from changelog items - sigh it's a comment!
+
 * Tue Jan 24 2006 Charlie Brady <charlieb@e-smith.com> 1.13.1-07
 - Remove /root/.vimrc [SME: 562]
 
@@ -109,7 +112,7 @@ AutoReqProv: no
 
 * Thu Mar  6 2003 Gordon Rowell <gordonr@e-smith.com>
 - [1.11.0-03]
-- And add generate-lexicons to %install and %files [gordonr 7578]
+- And add generate-lexicons to install and files [gordonr 7578]
 
 * Thu Mar  6 2003 Gordon Rowell <gordonr@e-smith.com>
 - [1.11.0-02]
