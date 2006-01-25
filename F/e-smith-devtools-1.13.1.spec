@@ -2,7 +2,7 @@ Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 1.13.1
-%define release 06
+%define release 07
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -18,6 +18,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Tue Jan 24 2006 Charlie Brady <charlieb@e-smith.com> 1.13.1-07
+- Remove /root/.vimrc [SME: 562]
+
 * Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.13.1-06
 - Bump release number only
 
@@ -371,7 +374,6 @@ cp buildtests  $RPM_BUILD_ROOT/sbin/e-smith
 cp validate-lexicon  $RPM_BUILD_ROOT/sbin/e-smith
 cp generate-lexicons $RPM_BUILD_ROOT/sbin/e-smith
 cp update-po $RPM_BUILD_ROOT/sbin/e-smith
-cp .vimrc $RPM_BUILD_ROOT/root
 cp CreateLinks.pm $RPM_BUILD_ROOT/usr/lib/perl5/site_perl/esmith/Build
 
 %clean
@@ -391,6 +393,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0755,root,root) /sbin/e-smith/update-po
 %attr(-,root,root) %dir /sbin
 %attr(-,root,root) %dir /sbin/e-smith
-%attr(0644,root,root) /root/.vimrc
 %attr(0644,root,root) /usr/lib/perl5/site_perl/esmith/Build/CreateLinks.pm
 %doc COPYING
