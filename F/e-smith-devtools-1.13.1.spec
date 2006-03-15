@@ -1,8 +1,8 @@
 Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
-%define version 1.13.1
-%define release 08
+%define version 1.14.1
+%define release 01
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -18,6 +18,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Wed Mar 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.14.0-01
+- Roll stable stream version. [SME: 1016]
+
 * Tue Jan 24 2006 Gordon Rowell <gordonr@gormand.com.au> 1.13.1-08
 - Remove % from changelog items - sigh it's a comment!
 
@@ -361,9 +364,6 @@ permissions.
 
 %prep
 %setup
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 
