@@ -1,16 +1,13 @@
 Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
-%define version 1.14.1
+%define version 1.14.0
 %define release 01
 Version: %{version}
 Release: %{release}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: e-smith-devtools-1.13.1-03.mitel_patch
-Patch1: e-smith-devtools-1.13.1-04.mitel_patch
-Patch2: e-smith-devtools-1.13.1-05.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
@@ -18,7 +15,7 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
-* Wed Mar 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.14.0-01
+* Thu Mar 16 2006 Gordon Rowell <gordonr@gormand.com.au> 1.14.0-01
 - Roll stable stream version. [SME: 1016]
 
 * Tue Jan 24 2006 Gordon Rowell <gordonr@gormand.com.au> 1.13.1-08
