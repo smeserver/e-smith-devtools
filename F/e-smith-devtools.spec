@@ -4,8 +4,7 @@ Name: %{name}
 %define version 1.14.0
 %define release 2
 Version: %{version}
-Release: %smerelease %{release}
-Packager: %{_packager}
+Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
@@ -15,6 +14,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
+- Clean up spec so package can be built by koji/plague
+
 * Thu Dec 07 2006 Shad L. Lords <slords@mail.com>
 - Update to new release naming.  No functional changes.
 - Make Packager generic
