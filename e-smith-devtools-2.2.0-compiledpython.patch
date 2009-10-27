@@ -1,0 +1,45 @@
+diff -up e-smith-devtools-2.2.0/genfilelist.compiledpython e-smith-devtools-2.2.0/genfilelist
+--- e-smith-devtools-2.2.0/genfilelist.compiledpython	2006-03-16 03:06:17.000000000 -0700
++++ e-smith-devtools-2.2.0/genfilelist	2009-10-26 13:35:24.000000000 -0600
+@@ -212,20 +212,28 @@ sub process
+     }
+     elsif (-f)
+     {
+-	#  Some files get special permissions and ownership
+-	my $dir = (dirname $path) . '/';
++        my (@paths) = ($path);
+ 
+-	# Special permissions per file
+-	if (defined $::fileperms{$path})
+-	{
+-	    print "$::fileperms{$path} ";
+-	}
+-	# Special permissions or per containing directory
+-	elsif (defined $::fileperms{$dir})
+-	{
+-	    print "$::fileperms{$dir} ";
+-	}
+-	print "$path\n";
++        # Add compiled python files
++        push $paths, "${path}c" if $path =~ m{\.py$};
++        push $paths, "${path}o" if $path =~ m{\.py$};
++
++        foreach $path (@paths) {
++            #  Some files get special permissions and ownership
++            my $dir = (dirname $path) . '/';
++
++            # Special permissions per file
++            if (defined $::fileperms{$path})
++            {
++                print "$::fileperms{$path} ";
++            }
++            # Special permissions or per containing directory
++            elsif (defined $::fileperms{$dir})
++            {
++                print "$::fileperms{$dir} ";
++            }
++            print "$path\n";
++        }
+     }
+     else
+     {
