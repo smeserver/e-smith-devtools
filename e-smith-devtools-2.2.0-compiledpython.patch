@@ -21,8 +21,8 @@ diff -up e-smith-devtools-2.2.0/genfilelist.compiledpython e-smith-devtools-2.2.
 -	}
 -	print "$path\n";
 +        # Add compiled python files
-+        push $paths, "${path}c" if $path =~ m{\.py$};
-+        push $paths, "${path}o" if $path =~ m{\.py$};
++        push @paths, "${path}c" if $path =~ m{\.py$};
++        push @paths, "${path}o" if $path =~ m{\.py$};
 +
 +        foreach $path (@paths) {
 +            #  Some files get special permissions and ownership

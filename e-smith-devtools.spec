@@ -1,10 +1,10 @@
-# $Id: e-smith-devtools.spec,v 1.3 2009/10/27 18:48:45 slords Exp $
+# $Id: e-smith-devtools.spec,v 1.4 2009/10/28 13:47:16 slords Exp $
 
 Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 2.2.0
-%define release 2
+%define release 3
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -17,6 +17,9 @@ Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-3.sme
+- Fix previous patch [SME: 5538]
+
 * Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-2.sme
 - Add compiled python files to the packaged files list [SME: 5538]
 
