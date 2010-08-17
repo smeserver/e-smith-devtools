@@ -1,0 +1,26 @@
+diff -up e-smith-devtools-2.0.0/genfilelist.no-orig e-smith-devtools-2.0.0/genfilelist
+--- e-smith-devtools-2.0.0/genfilelist.no-orig	2006-03-16 03:06:17.000000000 -0700
++++ e-smith-devtools-2.0.0/genfilelist	2010-08-17 07:49:28.000000000 -0600
+@@ -212,7 +212,10 @@ sub process
+     }
+     elsif (-f)
+     {
+-	#  Some files get special permissions and ownership
++	# Ignore .orig files created in prep section
++	return if $path =~ m{\.orig$};
++
++	# Some files get special permissions and ownership
+ 	my $dir = (dirname $path) . '/';
+ 
+ 	# Special permissions per file
+diff -up e-smith-devtools-2.0.0/buildtests.no-orig e-smith-devtools-2.0.0/buildtests
+--- e-smith-devtools-2.0.0/buildtests.no-orig	2002-02-21 14:21:45.000000000 -0700
++++ e-smith-devtools-2.0.0/buildtests	2010-08-17 08:01:07.000000000 -0600
+@@ -54,6 +54,7 @@ sub buildtests
+     return unless -T;
+     return if /CVS/;
+     return if /\.t$/;
++    return if /\.orig$/;
+     my $origfile = $_;
+     my ($testname, $dir) = fileparse($origfile, ".pm", ".pl");
+     my @dirs = split "/", $dir;

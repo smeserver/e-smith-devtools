@@ -1,21 +1,25 @@
-# $Id: e-smith-devtools.spec,v 1.2 2008/10/07 17:59:43 slords Exp $
+# $Id: e-smith-devtools.spec,v 1.3 2010/08/17 14:16:59 slords Exp $
 
 Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 2.0.0
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch1: e-smith-devtools-2.0.0-no-orig.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
 Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Tue Aug 17 2010 Shad L. Lords <slords@mail.com> 2.0.0-2.sme
+- Ignore .orig files create is prep stage [SME: 6173]
+
 * Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.0.0-1.sme
 - Roll new stream to separate sme7/sme8 trees [SME: 4633]
 
@@ -372,6 +376,7 @@ permissions.
 
 %prep
 %setup
+%patch1 -p1
 
 %build
 
