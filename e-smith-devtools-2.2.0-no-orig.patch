@@ -1,0 +1,33 @@
+diff -up e-smith-devtools-2.2.0/genfilelist.no-orig e-smith-devtools-2.2.0/genfilelist
+--- e-smith-devtools-2.2.0/genfilelist.no-orig	2010-08-17 07:50:45.000000000 -0600
++++ e-smith-devtools-2.2.0/genfilelist	2010-08-17 07:50:33.000000000 -0600
+@@ -212,6 +212,9 @@ sub process
+     }
+     elsif (-f)
+     {
++	# Ignore .orig files created in prep section
++	return if $path =~ m{\.orig$};
++
+         my (@paths) = ($path);
+ 
+         # Add compiled python files
+@@ -219,7 +222,7 @@ sub process
+         push @paths, "${path}o" if $path =~ m{\.py$};
+ 
+         foreach $path (@paths) {
+-            #  Some files get special permissions and ownership
++            # Some files get special permissions and ownership
+             my $dir = (dirname $path) . '/';
+ 
+             # Special permissions per file
+diff -up e-smith-devtools-2.2.0/buildtests.no-orig e-smith-devtools-2.2.0/buildtests
+--- e-smith-devtools-2.2.0/buildtests.no-orig	2002-02-21 14:21:45.000000000 -0700
++++ e-smith-devtools-2.2.0/buildtests	2010-08-17 08:03:55.000000000 -0600
+@@ -54,6 +54,7 @@ sub buildtests
+     return unless -T;
+     return if /CVS/;
+     return if /\.t$/;
++    return if /\.orig$/;
+     my $origfile = $_;
+     my ($testname, $dir) = fileparse($origfile, ".pm", ".pl");
+     my @dirs = split "/", $dir;

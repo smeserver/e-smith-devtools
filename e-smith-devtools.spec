@@ -1,22 +1,26 @@
-# $Id: e-smith-devtools.spec,v 1.4 2009/10/28 13:47:16 slords Exp $
+# $Id: e-smith-devtools.spec,v 1.5 2010/08/17 14:16:59 slords Exp $
 
 Summary: e-smith tools for building RPMs
 %define name e-smith-devtools
 Name: %{name}
 %define version 2.2.0
-%define release 3
+%define release 4
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch1: e-smith-devtools-2.2.0-compiledpython.patch
+Patch2: e-smith-devtools-2.2.0-no-orig.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
 Requires: perl, perl(Test::Inline) >= 0.12, perl(XML::Parser)
 AutoReqProv: no
 
 %changelog
+* Tue Aug 17 2010 Shad L. Lords <slords@mail.com> 2.2.0-4.sme
+- Ignore .orig files create is prep stage [SME: 6173]
+
 * Mon Oct 26 2009 Shad L. Lords <slords@mail.com> 2.2.0-3.sme
 - Fix previous patch [SME: 5538]
 
@@ -380,6 +384,7 @@ permissions.
 %prep
 %setup
 %patch1 -p1
+%patch2 -p1
 
 %build
 
